@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D playerRigidbody;
     private Vector3 change;
     private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,10 +25,7 @@ public class PlayerMovement : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
         UpdateAnimationAndMove();
 
-        
-        
     }
-
     void UpdateAnimationAndMove()
     {
         //if there is an actual change happing
