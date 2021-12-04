@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         change.y = Input.GetAxisRaw("Vertical");
         if (Input.GetButtonDown("Attack") && currentState != PlayerState.attack)
         {
+            Debug.Log("Is attacking");
             StartCoroutine(AttackCo());
         }
         else if(currentState == PlayerState.walk)

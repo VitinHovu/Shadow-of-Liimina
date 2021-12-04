@@ -13,17 +13,29 @@ public class EnemyMovement : MonoBehaviour
     private float speed = 5f;
 
     private SpriteRenderer sprite;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if(distance < 5)
+        {
+            AttackPlayer();
+        }
+        else if(distance > 5)
+        {
+            Movement();
+        }
+        
     }
 
     private void Movement()
@@ -39,13 +51,17 @@ public class EnemyMovement : MonoBehaviour
 
         if(switching == true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoint2.position, speed);
+            transform.position = Vector2.MoveTowards(transform.position, waypoint2.position, speed * Time.deltaTime);
             sprite.flipY = false;
         }
         else if(switching == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoint1.position, speed);
+            transform.position = Vector2.MoveTowards(transform.position, waypoint1.position, speed * Time.deltaTime);
             sprite.flipY = true;
         }
+    }
+    private void AttackPlayer()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 }
