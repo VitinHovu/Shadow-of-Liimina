@@ -9,10 +9,15 @@ public class CameraMovemet : MonoBehaviour
     public float smoothing;
     public Vector2 maxPoisiton;
     public Vector2 minPoistion;
+
+    [Header("Position Reset")]
+    public VectorValue camMin;
+    public VectorValue camMax;
     // Start is called before the first frame update
     void Start()
     {
-        
+        maxPoisiton = camMax.initValue;
+        minPoistion = camMin.initValue;
     }
 
     // Update is called once per frame

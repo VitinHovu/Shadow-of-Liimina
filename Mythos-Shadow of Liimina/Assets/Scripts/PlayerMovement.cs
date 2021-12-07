@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Rigidbody2D playerRigidbody;
     private Vector3 change;
+    public VectorValue startingPosition;
     private Animator animator;
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
+        transform.position = startingPosition.initValue;
     }
 
     // Update is called once per frame
