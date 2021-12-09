@@ -30,6 +30,7 @@ public class EnemyMovement : MonoBehaviour
         if(distance < 5)
         {
             AttackPlayer();
+            RotateTowardsTarget();
         }
         else if(distance > 5)
         {
@@ -52,16 +53,26 @@ public class EnemyMovement : MonoBehaviour
         if(switching == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypoint2.position, speed * Time.deltaTime);
-            sprite.flipY = false;
+            sprite.flipY = true;
         }
         else if(switching == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypoint1.position, speed * Time.deltaTime);
-            sprite.flipY = true;
+            sprite.flipY = false;
         }
     }
     private void AttackPlayer()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+    }
+
+    private void RotateTowardsTarget()
+    {
+        var offset = 90f;
+        Vector2 direction = player.transform.position - transform.position;
+        direction.Normalize();
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+        sprite.flipY = false;
     }
 }
