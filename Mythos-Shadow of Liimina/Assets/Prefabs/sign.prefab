@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7941765050366536956}
   - component: {fileID: 6325365855311900455}
   - component: {fileID: 2929502647112447110}
+  - component: {fileID: 1439121878}
   m_Layer: 0
   m_Name: sign
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 940256423
+  m_SortingLayerID: 1805783813
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 4479181887894498110, guid: 274449736c6eae7429df0b539de90427, type: 3}
@@ -94,8 +95,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.4660737}
   m_SpriteTilingProperty:
@@ -136,3 +137,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1439121878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915490038205012327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0a0b7b064c3a54f8a23b0aeaa84bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
+  dialog: enemy and attack simulation ahead
+  showDialog: 0
